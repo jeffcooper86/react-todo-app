@@ -14,8 +14,8 @@ An understanding of ES2015 syntax will be necessary, but in your solutions you c
 
  * Implement the ability to check items off. This should result in a strike-through being applied to the item text using CSS. The UI already exists and interaction events are already wired up to the store.
  * Implement the ability to delete items.  The UI already exists and interaction events are already wired up to the store.
- * Set up a gulp task to watch the src folder and trigger a build when its files are changed.  
- * Center the list item contents vertically without modifying the margin or padding of list items
+ * ~~Set up a gulp task to watch the src folder and trigger a build when its files are changed.~~
+ * ~~Center the list item contents vertically without modifying the margin or padding of list items~~
 
 ### Bonus
 
