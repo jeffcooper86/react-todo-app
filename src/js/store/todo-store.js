@@ -10,13 +10,12 @@ let addItem = (todoText) => {
 };
 
 let deleteItem = (index) => {
-  // To be implemented
-  console.log(todoStore.items[index]);
+  todoStore.items.splice(index, 1);
+  dispatcher.emit('todo-store:change', todoStore);
 };
 
 let checkItem = (index) => {
-  // To be implemented
-  console.log(todoStore.items[index]);
+  todoStore.items[index].complete = true;
 }
 
 dispatcher.on('todo:user-added', addItem);
