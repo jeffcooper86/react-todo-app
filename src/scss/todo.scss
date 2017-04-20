@@ -1,0 +1,30 @@
+.todo-items_delete-btn, .todo-items_check-btn {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 1.3em;
+  margin-right: 10px;
+  padding: 0;
+  outline: none;
+}
+
+.todo-items_delete-btn {
+  color: #b12;
+}
+
+.todo-items_check-btn {
+  color: #382;
+}
+
+.todo-items_list {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-items_item {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin: 10px 0;
+  padding: 5px;
+  height: 40px;
+}
