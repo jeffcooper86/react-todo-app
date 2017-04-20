@@ -30,3 +30,9 @@ gulp.task('connect', function() {
 });
 
 gulp.task('default', ['build']);
+
+gulp.task('watch', function() {
+  gulp.watch('src/{js,jsx}/**', ['js']);
+  gulp.watch('src/scss/**', ['scss']);
+  gulp.watch('src/**/*.html', ['html']);
+});
