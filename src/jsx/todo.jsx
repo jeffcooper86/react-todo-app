@@ -49,16 +49,19 @@ class Todo extends React.Component {
     let todoItems = this.state.todoItems.map((todoItem, index) => {
       return (
         <li className={'todo-items_item' + (todoItem.complete ? ' todo-items_item-complete' : '')} key={index}>
-          <button onClick={() => this.handleCheck(index)} className="todo-items_check-btn">&#10004;</button>
-          <button onClick={() => this.handleDelete(index)} className="todo-items_delete-btn">&#x2716;</button>
           <span className="todo-items_item-text">{todoItem.text}</span>
+          <div className="todo-items_item-actions">
+            <button onClick={() => this.handleCheck(index)} className="todo-items_check-btn">&#10004;</button>
+            <button onClick={() => this.handleDelete(index)} className="todo-items_delete-btn">&#x2716;</button>
+          </div>
         </li>
       );
     });
 
     return (
       <div>
-        <input placeholder="New Task" onChange={this.handleChange} onKeyDown={this.handleKeyDown} />
+        <h1>Todo</h1>
+        <input className="todo-input" placeholder="New Task" onChange={this.handleChange} onKeyDown={this.handleKeyDown} />
 
         <ul className="todo-items_list">
           {todoItems}

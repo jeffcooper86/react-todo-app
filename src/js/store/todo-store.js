@@ -16,6 +16,7 @@ let deleteItem = (index) => {
 
 let checkItem = (index) => {
   todoStore.items[index].complete = true;
+  dispatcher.emit('todo-store:change', todoStore);
 }
 
 dispatcher.on('todo:user-added', addItem);
