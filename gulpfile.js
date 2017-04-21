@@ -17,8 +17,12 @@ gulp.task('js', function() {
 });
 
 gulp.task('scss', function() {
+  const prodConfig = {
+    outputStyle: 'compressed'
+  };
+  const config = isProd() ? prodConfig : {};
   return gulp.src('src/scss/**/*.scss')
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass(config).on('error', sass.logError))
     .pipe(gulp.dest('build/css/'));
 });
 
