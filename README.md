@@ -20,4 +20,4 @@ An understanding of ES2015 syntax will be necessary, but in your solutions you c
 ### Bonus
 
 * Minify built source code using Webpack or Gulp
-* Improve the appearance of the UI to your liking
+* ~~Improve the appearance of the UI to your liking~~

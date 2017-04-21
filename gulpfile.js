@@ -1,14 +1,18 @@
 var gulp = require('gulp');
 var connect = require('gulp-connect');
-var webpack = require('webpack-stream');
+var webpackStream = require('webpack-stream');
+var webpack = require('webpack');
 var webpackConfig = require('./webpack.config.js');
+var webpackConfigProd = require('./webpack.config.prod.js')
 var sass = require('gulp-sass');
 
 gulp.task('build', ['js', 'scss', 'html'])
+gulp.task('prod', ['setProd', 'build']);
 
 gulp.task('js', function() {
+  const config = isProd() ? webpackConfigProd : webpackConfig;
   return gulp.src('src/js/app.js')
-    .pipe(webpack(webpackConfig))
+    .pipe(webpackStream(config, webpack))
     .pipe(gulp.dest('build/js/'))
 });
 
@@ -36,3 +40,11 @@ gulp.task('watch', function() {
   gulp.watch('src/scss/**', ['scss']);
   gulp.watch('src/**/*.html', ['html']);
 });
+
+gulp.task('setProd', function() {
+  return process.env.NODE_ENV = 'production';
+});
+
+function isProd() {
+  return process.env.NODE_ENV === 'production';
+}
