@@ -25,7 +25,10 @@ class Todo extends React.Component {
 
   handleKeyDown(evt) {
     if (evt.keyCode === 13) {
-      dispatcher.emit('todo:user-added', this.state.todoInput);
+      const input = this.state.todoInput;
+      this.setState({todoInput: ''}, function() {
+        dispatcher.emit('todo:user-added', input);
+      });
     }
   }
 
@@ -45,6 +48,10 @@ class Todo extends React.Component {
     dispatcher.emit('todo:user-checked', index);
   }
 
+  componentDidMount() {
+    this.todoInput.focus();
+  }
+
   render() {
     let todoItems = this.state.todoItems.map((todoItem, index) => {
       return (
@@ -61,7 +68,10 @@ class Todo extends React.Component {
     return (
       <div>
         <h1>Todo</h1>
-        <input className="todo-input" placeholder="New Task" onChange={this.handleChange} onKeyDown={this.handleKeyDown} />
+        <input className="todo-input" placeholder="New Task"
+          value={this.state.todoInput}
+          ref={(input) => { this.todoInput = input; }}
+          onChange={this.handleChange} onKeyDown={this.handleKeyDown} />
 
         <ul className="todo-items_list">
           {todoItems}
