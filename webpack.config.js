@@ -1,8 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
 
-// process.env.NODE_ENV = 'production';
-
 module.exports = {
   entry: './src/js/app.js',
   output: { path: path.join(__dirname, 'build/js'), filename: 'bundle.js' },
